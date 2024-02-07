@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "this for google form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "farhan",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "excell": "^0.0.0-alpha-1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2"
+  }
+}
