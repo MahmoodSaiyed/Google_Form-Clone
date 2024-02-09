@@ -38,7 +38,7 @@ export default function Maincomponent() {
     <div className='main_body'>
   
       <div className='mainbody_top'>
-        <div className='mainbody_top_left' style={{fontSize:"16px",fontWeight:"500"}}> Recent Forms</div>
+        <div className='mainbody_top_left my-4' style={{fontSize:"25px",fontWeight:"500"}}> <strong>Recent Forms</strong></div>
 
         <div className='mainbody_top_right'>
             <div className='mainbody_top_center' style={{fontSize:"14px", marginRight:"125px"}}>Owned By You <ArrowDropDown/></div>
@@ -51,9 +51,11 @@ export default function Maincomponent() {
         </div>
       </div>
       <div className='mainbody_docs'>
+      <div className='doc_card_container_horizontal' style={{ display: 'flex', flexWrap: 'nowrap', overflowX: 'auto' }}>
+
       {
         files.map((e)=>(
-          <div className='doc_card_container'>
+          <div className='doc_card_container my-2'>
           <div className='doc_card' onClick={()=>{navigate_to(e)}}>
           <img src="https://i.ytimg.com/vi/Fu4_gs25Iw8/maxresdefault.jpg" alt="" className='doc_image' />
           <div className='doc_card_content'>
@@ -70,6 +72,7 @@ export default function Maincomponent() {
         ))
       }
         
+      </div>
       </div>
     </div>
   )

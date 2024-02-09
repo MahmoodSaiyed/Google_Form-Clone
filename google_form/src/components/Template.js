@@ -12,7 +12,6 @@ export default function Template() {
   const createform = async () => {
     const id = uuidv4()
     console.log(typeof id)
-    localStorage.setItem('formid',id)
 
   //   const question_list=[{questionText:"Question",questionType:"radio", options:[{optionText:'option 1'}],open:true,require:false
   // }]
@@ -58,16 +57,16 @@ export default function Template() {
       <div className='template_body'>
         <div className='card' onClick={createform}>
           <img src="https://i.pinimg.com/736x/c9/d4/22/c9d422abc399e4f932c8a5eeff6e7a25.jpg" alt=""  className='card_image'/>
-          <p className='card_title'>Blank</p>
+          <p className='card_title'> <strong>Blank Form</strong></p>
         </div>
         <div className='card'>
-          <img src="https://i.pinimg.com/736x/c9/d4/22/c9d422abc399e4f932c8a5eeff6e7a25.jpg" alt=""  className='card_image'/>
-          <p className='card_title'>Party invite</p>
+          <img src="https://www.google-forms-templates.com/images/1TGTaxD6nWIF0__LIXWLuBtNwd1OawHI-17gJFDXacbg.png" alt=""  className='card_image'/>
+          <p className='card_title'><strong>Party invite</strong></p>
         </div>
 
         <div className='card'>
-          <img src="https://i.pinimg.com/736x/c9/d4/22/c9d422abc399e4f932c8a5eeff6e7a25.jpg" alt=""  className='card_image'/>
-          <p className='card_title'>Contact Info</p>
+          <img src="https://3.bp.blogspot.com/-ZJaT1IlQHMk/Wo2I0XmG9oI/AAAAAAAAQr8/26kN_3GOfG8D6r_ohHWJdm5Q2rRX523OgCLcBGAs/s1600/Contact%2Bus%2Bform.PNG" alt=""  className='card_image'/>
+          <p className='card_title'><strong>Contact Info</strong></p>
         </div>
       </div>
     </div>
