@@ -19,7 +19,7 @@ export default function Maincomponent() {
 
   useEffect(() => {
     async function  Filesname(){
-      const response = await fetch(`https://7bfc-2401-4900-1f3f-8bb0-edd9-189a-80dc-8840.ngrok-free.app/form/get/list_of_files`,{
+      const response = await fetch(`http://localhost:8000/form/get/list_of_files`,{
         methhd:"GET",
         headers:{
           "Content-Type":"application/json",

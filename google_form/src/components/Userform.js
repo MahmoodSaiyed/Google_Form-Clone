@@ -1,12 +1,11 @@
 import { Button, Typography } from '@material-ui/core'
-import React ,{useState,useEffect} from 'react'
+import React ,{useState} from 'react'
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Radio from '@material-ui/core/Radio';
 
 import {  useNavigate } from 'react-router-dom';
 import "../css/user_form.css"
 import { useStateValue } from './StateProvider';
-import axios from 'axios';
 
 // Form Body
 function Userform() {
@@ -56,7 +55,7 @@ function Userform() {
     });
 
     try {
-      await fetch(`https://7bfc-2401-4900-1f3f-8bb0-edd9-189a-80dc-8840.ngrok-free.app/form/post/result`, {
+      await fetch(`http://localhost:8000/form/post/result`, {
         method: "POST",
         headers: {
           "ngrok-skip-browser-warning": true,

@@ -33,7 +33,8 @@ import {useStateValue} from './StateProvider.js'
 
 export default function Questionform({onDataFetch}) {
   const {id}=useParams()
-  const[{},dispatch]=useStateValue();
+  // eslint-disable-next-line
+  const[{ },dispatch]=useStateValue();
   useEffect(() => {
     if (onDataFetch) {
       onDataFetch();
@@ -55,7 +56,6 @@ export default function Questionform({onDataFetch}) {
             require:false
         }]
     )
-    const [currentQuestionType, setCurrentQuestionType] = useState('')
     const[documentName,setDocname]=useState('untitled Document')
     const[documentDesc,setDocDesc]=useState('add Description')
 
@@ -164,7 +164,7 @@ export default function Questionform({onDataFetch}) {
 
  
     const add_data= async()=>{
-        const response = await fetch(`https://7bfc-2401-4900-1f3f-8bb0-edd9-189a-80dc-8840.ngrok-free.app/form/get/file_id/${id}`,{
+        const response = await fetch(`http://localhost:8000/form/get/file_id/${id}`,{
           methhd:"GET",
           headers:{
             "Content-Type":"application/json",
@@ -206,7 +206,7 @@ export default function Questionform({onDataFetch}) {
         doc_name:documentName
       })
       try {
-        await fetch(`https://7bfc-2401-4900-1f3f-8bb0-edd9-189a-80dc-8840.ngrok-free.app/form/post/add_data`, {
+        await fetch(`http://localhost:8000/form/post/add_data`, {
 
 
           method: "POST",
