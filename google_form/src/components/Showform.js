@@ -31,14 +31,9 @@ import {useStateValue} from './StateProvider.js'
 
 
 
-export default function Questionform({onDataFetch}) {
+export default function Showform() {
   const {id}=useParams()
   const[{},dispatch]=useStateValue();
-  useEffect(() => {
-    if (onDataFetch) {
-      onDataFetch();
-    }
-  }, [onDataFetch]);
     const[question,setQuestion]=useState(
         [{
             questionText:"Question",
@@ -160,11 +155,72 @@ export default function Questionform({onDataFetch}) {
     }])
     console.log("clicked")
     }
+    // Expand all 
+    // function expandCloseAll(){
+    //   let qs=[...question];
+    //   for(let j = 0 ; j < qs.length ; j++){
+    //     qs[j].open=false;
+    //   }
+    //   setQuestion(qs)
+    // }
+    // handle Expand 
+    // function handleExpand(i){
+    //   let qs=[...question];
+    //   for(let j = 0 ; j < qs.length ; j++ ){
+    //     if(i === j){
+    //       qs[i].open=true
+    //     }
+    //     else{
+    //       qs[j].open=false
+    //     }
+    //   }
+    //   setQuestion(qs)
+    // }
+    
+    useEffect(() => {
+  
+    },[])
+    
+
+    // API CALLING 
+    const committoDB = async () => {
+      dispatch({
+        type:actionTypes.SET_QUESTION,
+        question:question
+      })
+      dispatch({
+        type:actionTypes.SET_DOC_DESC,
+        doc_desc:documentDesc
+      })
+      dispatch({
+        type:actionTypes.SET_DOC_NAME,
+        doc_name:documentName
+      })
+      try {
+        await fetch(`https://f467-2401-4900-1f3f-8bb0-dc23-be5a-32cd-1791.ngrok-free.app/form/post/add_data`, {
 
 
- 
-    const add_data= async()=>{
-        const response = await fetch(`https://7bfc-2401-4900-1f3f-8bb0-edd9-189a-80dc-8840.ngrok-free.app/form/get/file_id/${id}`,{
+          method: "POST",
+          headers: {
+          
+            "ngrok-skip-browser-warning": true,
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            "id":id,
+           "document_name":documentName,
+           'doc_desc':documentDesc,
+           "questions":question
+          })
+        }).then(async (response) => {
+          await response.json();
+        });
+      } catch (error) {
+        console.error("Error fetching secret data:", error);
+      }
+
+      async function  add_data(){
+        const response = await fetch(`https://f467-2401-4900-1f3f-8bb0-dc23-be5a-32cd-1791.ngrok-free.app/form/get/file_id/${id}`,{
           methhd:"GET",
           headers:{
             "Content-Type":"application/json",
@@ -190,44 +246,7 @@ export default function Questionform({onDataFetch}) {
        })
 
       }
-    
-    // API CALLING 
-    const committoDB = async () => {
-      dispatch({
-        type:actionTypes.SET_QUESTION,
-        question:question
-      })
-      dispatch({
-        type:actionTypes.SET_DOC_DESC,
-        doc_desc:documentDesc
-      })
-      dispatch({
-        type:actionTypes.SET_DOC_NAME,
-        doc_name:documentName
-      })
-      try {
-        await fetch(`https://7bfc-2401-4900-1f3f-8bb0-edd9-189a-80dc-8840.ngrok-free.app/form/post/add_data`, {
-
-
-          method: "POST",
-          headers: {
-          
-            "ngrok-skip-browser-warning": true,
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({
-            "id":id,
-           "document_name":documentName,
-           'doc_desc':documentDesc,
-           "questions":question
-          })
-        }).then(async (response) => {
-          await response.json();
-        });
-      } catch (error) {
-        console.error("Error fetching secret data:", error);
-      }
-      
+      add_data()
     };
 
     // Form Body
@@ -373,7 +392,7 @@ export default function Questionform({onDataFetch}) {
                 <AddCircleOutline onClick={addmoreQuestion} className='edit'/>
                 <OndemandVideo className='edit'/>
                 <CropOriginal className='edit'/>
-                <TextFields onClick={add_data} className='edit'/>
+                <TextFields className='edit'/>
 
                 </div>):""}
               </div>
