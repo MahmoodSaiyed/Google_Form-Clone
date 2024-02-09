@@ -10,7 +10,7 @@ export default function Submitted() {
        <div className="user_title_section">
                     <Typography style={{fontSize:"26px"}} >Submitted</Typography> <br />
                     <Typography style={{fontSize:"15px"}} >Your response has been recorded.</Typography> <br />
-                    <a href="/response">Submit another response</a>
+                    <a href="/">Submit another response</a>
 
                 </div>
                 </div>
